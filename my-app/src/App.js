@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import MenuFull from './components/MenuFull';
 
 import {
   BrowserRouter as Router,
