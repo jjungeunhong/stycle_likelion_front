@@ -20,7 +20,7 @@ function App() {
     <BrowserRouter>
       <Routes>
 				<Route path="/" element={<Main />} />
-				<Route path="/donate" element={<Donate />} />
+				<Route path="/donation" element={<Donate />} />
         <Route path="/mission" element={<Mission />} />
         <Route path="/recycle" element={<Recycle />} />
       </Routes>
