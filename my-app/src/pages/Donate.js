@@ -3,8 +3,13 @@ import 'leaflet/dist/leaflet.css';
 import './donate.css';
 import { Icon } from 'leaflet';
 import { MapContainer, Popup, TileLayer, Marker } from 'react-leaflet';
+import { useRef } from 'react';
 
 function Donate() {
+    const ref = useRef(null);
+    const handleclick = () => {
+        ref.current?.scrollIntoView({behavior:'smooth'})
+    }
     const markers = [
         {
         geocode: [33.65121119168223, -117.84499505852567],
@@ -75,14 +80,16 @@ function Donate() {
                         <p>Spin the cycle of giving</p>
                     </div>
                     <div className="flex flex-row items-center space-x-5 py-7 px-10">
-                        <button className='bg-gray-100 hover:bg-gray-300 text-black hover:text-black text-sm py-2 px-6 rounded shadow'>Clothing Bins Near Me</button>
+                        <button className='bg-gray-100 hover:bg-gray-300 text-black hover:text-black text-sm py-2 px-6 rounded shadow' onClick={handleclick}>Clothing Bins Near Me</button>
                         <button className='bg-gray-100 hover:bg-gray-300 text-black hover:text-black text-sm py-2 px-6 rounded shadow'>What to Give</button>
                         <button className='bg-gray-100 hover:bg-gray-300 text-black hover:text-black text-sm py-2 px-6 rounded shadow'>Thrift Store Near me</button>
                     </div>
                 </div>
-                <div className='flex flex-row items-center justify-center py-8'>
+
+                <div className='flex flex-row items-center justify-center py-8' ref={ref}>
                     <p className='text-xl'>Find the Clothing Bins Near You</p>
                 </div>
+
                 <div className="flex justify-center">
                     <MapContainer center={[33.64709604957145, -117.83781926918356]} zoom={16} style={{ height: '70vh', width: '70%' }}>
                         <TileLayer
@@ -95,6 +102,56 @@ function Donate() {
                             </Marker>
                         ))}
                     </MapContainer>
+                </div>
+                <div className='flex h-screen items-center justify-center'>
+                    {/* <div className='flex flex-row items-center justify-center'>
+                        <h1 className='text-black font-extrabold text-2xl'>Donation Guidelines</h1>
+                    </div> */}
+                    <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6'>
+                        <div className='group relative items-center justify-center overflow-hidden cursor-pointer'>
+                            <div className='h-96 w-72'>
+                                <img className='h-full w-full object-cover' src='https://images.pexels.com/photos/235525/pexels-photo-235525.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2' alt='clothes'></img>
+                            </div>
+                            <div className='absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black'></div>
+                                <div className='absolute inset-0 flex flex-col items-center justify-center px-9 text-center translate-y-[60%] group-hover:translate-y-0 transition-all'>
+                                    <h1 className='text-3xl font-bold text-white mb-9'>Clothes</h1>
+                                    <p className='text-lg text-white mb-3'>All seasons of clothing, including shoes, handbags and accessories</p>
+                                </div>
+                        </div>
+
+                        <div className='group relative items-center justify-center overflow-hidden cursor-pointer'>
+                            <div className='h-96 w-72'>
+                                <img className='h-full w-full object-cover' src='https://media.istockphoto.com/id/586162072/photo/various-kitchen-utensils.jpg?s=1024x1024&w=is&k=20&c=IzdCrs1KIKgYNS7TntHug3OVV97XnYPewVf1vFU_ZWg=' alt='shoes'></img>
+                            </div>
+                            <div className='absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black'></div>
+                                <div className='absolute inset-0 flex flex-col items-center justify-center px-9 text-center translate-y-[60%] group-hover:translate-y-0 transition-all'>
+                                    <h1 className='text-3xl font-bold text-white mb-9'>Houseware</h1>
+                                    <p className='text-lg text-white mb-3'>Including cookware, dishes, silverware, glassware, artwork and picture frames, blankets, books, etc.</p>
+                                </div>
+                        </div>
+
+                        <div className='group relative items-center justify-center overflow-hidden cursor-pointer'>
+                            <div className='h-96 w-72'>
+                                <img className='h-full w-full object-cover' src='https://images.pexels.com/photos/1450907/pexels-photo-1450907.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2' alt='appliance'></img>
+                            </div>
+                            <div className='absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black'></div>
+                                <div className='absolute inset-0 flex flex-col items-center justify-center px-9 text-center translate-y-[60%] group-hover:translate-y-0 transition-all'>
+                                    <h1 className='text-3xl font-bold text-white mb-9'>Small Appliance</h1>
+                                    <p className='text-lg text-white mb-3'>Including toasters, coffee pots, electric frying pans, irons, mixers, blenders and microwaves</p>
+                                </div>
+                        </div>
+
+                        <div className='group relative items-center justify-center overflow-hidden cursor-pointer'>
+                            <div className='h-96 w-72'>
+                                <img className='h-full w-full object-cover' src='https://media.istockphoto.com/id/1400570369/photo/old-computers-digital-tablets-mobile-phones-many-used-electronic-gadgets-devices-broken.jpg?s=1024x1024&w=is&k=20&c=BA3dOCaiXxcfSVVhPwqjLA0jLJ000HfqORNpH_KV_V0=' alt='appliance'></img>
+                            </div>
+                            <div className='absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black'></div>
+                                <div className='absolute inset-0 flex flex-col items-center justify-center px-9 text-center translate-y-[60%] group-hover:translate-y-0 transition-all'>
+                                    <h1 className='text-3xl font-bold text-white mb-9'>Electronics</h1>
+                                    <p className='text-lg text-white mb-3'>Including toasters, coffee pots, electric frying pans, irons, mixers, blenders and microwaves</p>
+                                </div>
+                        </div>
+                    </div>
                 </div>
             </div>
     );
