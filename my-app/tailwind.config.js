@@ -8,6 +8,9 @@ module.exports = {
     extend: {
       backgroundImage: {
         'main': "url('../public/assets/main-bg.png')",
+        'main-ppl': "url('../public/assets/main-ppl.png')",
+        'jungeun': "url('../public/assets/jungeun.png')",
+        'chris': "url('../public/assets/chris.png')",
       },
       fontFamily: {
         'montserrat': ["Montserrat Alternates", "sans-serif"],
