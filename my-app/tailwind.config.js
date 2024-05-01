@@ -8,10 +8,14 @@ module.exports = {
     extend: {
       backgroundImage: {
         'main': "url('../public/assets/main-bg.png')",
+        'main-ppl': "url('../public/assets/main-ppl.png')",
+        'jungeun': "url('../public/assets/jungeun.png')",
+        'chris': "url('../public/assets/chris.png')",
       },
       fontFamily: {
         'montserrat': ["Montserrat Alternates", "sans-serif"],
         'quattrocento': ["Quattrocento Sans", "sans-serif"],
+        'quatt': ["Quattrocento", "serif"],
         'gilroy': ["gilroy", "sans-serif"],
       },
       colors: {
@@ -22,6 +26,7 @@ module.exports = {
         'menu': '#F7F7C0',
         'success': '#EA6C56',
         'mypink': '#EB6AA5',
+        'primarydown':'#C7E667',
       }
     },
   },
