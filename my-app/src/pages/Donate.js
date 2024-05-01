@@ -3,6 +3,7 @@ import 'leaflet/dist/leaflet.css';
 import './donate.css';
 import { Icon } from 'leaflet';
 import { MapContainer, Popup, TileLayer, Marker } from 'react-leaflet';
+
 import { useRef } from 'react';
 
 function Donate() {
@@ -80,11 +81,13 @@ function Donate() {
                         <p>Spin the cycle of giving</p>
                     </div>
                     <div className="flex flex-row items-center space-x-5 py-7 px-10">
+
                         <button className='bg-gray-100 hover:bg-gray-300 text-black hover:text-black text-sm py-2 px-6 rounded shadow' onClick={handleclick}>Clothing Bins Near Me</button>
                         <button className='bg-gray-100 hover:bg-gray-300 text-black hover:text-black text-sm py-2 px-6 rounded shadow'>What to Give</button>
                         <button className='bg-gray-100 hover:bg-gray-300 text-black hover:text-black text-sm py-2 px-6 rounded shadow'>Thrift Store Near me</button>
                     </div>
                 </div>
+
 
                 <div className='flex flex-row items-center justify-center py-8' ref={ref}>
                     <p className='text-xl'>Find the Clothing Bins Near You</p>
@@ -103,6 +106,7 @@ function Donate() {
                         ))}
                     </MapContainer>
                 </div>
+
                 <div className='flex h-screen items-center justify-center'>
                     {/* <div className='flex flex-row items-center justify-center'>
                         <h1 className='text-black font-extrabold text-2xl'>Donation Guidelines</h1>
