@@ -11,6 +11,7 @@ module.exports = {
         'main-ppl': "url('../public/assets/main-ppl.png')",
         'jungeun': "url('../public/assets/jungeun.png')",
         'chris': "url('../public/assets/chris.png')",
+        'mission': "url('../public/assets/mission-bg.png')",
       },
       fontFamily: {
         'montserrat': ["Montserrat Alternates", "sans-serif"],
@@ -27,6 +28,8 @@ module.exports = {
         'success': '#EA6C56',
         'mypink': '#EB6AA5',
         'primarydown':'#C7E667',
+        'matcha': '#DCEFA9',
+        'charcoal': '#36454F',
       }
     },
   },
