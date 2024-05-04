@@ -3,7 +3,7 @@ import MenuButton from "./MenuButton";
 
 function Header() {
   return (
-    <nav className="w-full fixed top-0 left-0 py-3 border-b bg-nav z-10">
+    <nav className="w-full fixed top-0 left-0 py-3 border-b bg-nav z-40">
       <div className="max-auto px-6">
         <div className="grid-col-3 flex justify-between items-center">
           <div className="flex flex-row">
