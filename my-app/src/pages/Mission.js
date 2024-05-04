@@ -10,14 +10,14 @@ function Mission() {
               src="assets/mission-under.png"
               className="w-[350px] mt-[100px] opacity-50"
             ></img>
-            <p className="font-quatt font-bold text-2xl tracking-widest absolute top-[100px] left-[80px]">
+            <p className="font-quatt font-bold text-2xl tracking-widest absolute top-[100px] left-[105px]">
               our mission
             </p>
-            <p className="mt-2 font-montserrat font-extrabold text-8xl absolute top-[150px] left-[-180px]">
-              Sustainability
+            <p className="mt-2 font-montserrat font-extrabold text-8xl absolute top-[150px] left-[30px]">
+              Easier
             </p>
-            <p className="w-[730px] mt-2 font-montserrat font-extrabold text-8xl absolute top-[250px] left-[-150px]">
-              made easier
+            <p className="w-[1000px] mt-2 font-montserrat font-extrabold text-8xl absolute top-[250px] left-[-170px]">
+              Sustainability
             </p>
             <p className="w-[1000px] mt-2 font-quatt font-bold text-4xl absolute top-[400px] left-[-250px]">
               "Sustainable Fashion is not a{" "}
@@ -32,7 +32,7 @@ function Mission() {
             <a href="#know" class="bg-gray-700 hover:bg-white text-menu hover:text-gray-700 font-quattrocento font-bold py-[10px] px-[60px] rounded-full">
                 Did you know?
             </a>
-            <a href="#probelm" class="bg-gray-700 hover:bg-white text-menu hover:text-gray-700 font-quattrocento font-bold py-[10px] px-[60px] rounded-full">
+            <a href="#problem" class="bg-gray-700 hover:bg-white text-menu hover:text-gray-700 font-quattrocento font-bold py-[10px] px-[60px] rounded-full">
                 Problems
             </a>
             <a href="#solution" class="bg-gray-700 hover:bg-white text-menu hover:text-gray-700 font-quattrocento font-bold py-[10px] px-[60px] rounded-full">
@@ -62,6 +62,42 @@ function Mission() {
                 <p className="mt-[10px] font-quatt text-white font-bold text-5xl">second! </p>
             </div>
             <div><img src="assets/mission-clothes.png" className="w-[450px] mt-[50px] ml-[100px]"></img></div>
+          </div>
+
+          <div id="problem" className="flex flex-col w-screen items-center bg-success z-5">
+            <div className="relative mt-[30px]">
+              <p className="font-montserrat text-white text-[200px] font-bold drop-shadow-lg z-4">MICRO</p>
+              <img src="assets/mission-micro.png" className="absolute h-[550px] top-0 left-[200px] z-3"></img>
+              <p className="absolute font-montserrat text-white text-[200px] top-[200px] left-[-50px] font-bold drop-shadow-lg z-1">PLASTIC   </p>
+            </div>
+            <div className="flex flex-col mt-[160px] items-center">
+              <p className="mt-[5px] font-quatt text-white text-2xl">Our clothes are made of plastic and this plastic comes from synthetic textiles</p>
+              <p className="mt-[5px] font-quatt text-white text-2xl">like polyester. The release of microplastic is the highest when new clothes</p>
+              <p className="mt-[5px] font-quatt text-white text-2xl">are washed for the first time. An average 6 kg load of laundry releases more</p>
+              <p className="mt-[5px] font-quatt text-white text-2xl">than 700,000 miscroscopic plastic fibers into wastewater. As garments are </p>
+              <p className="mt-[5px] font-quatt text-white text-2xl">used for a short time and replaced quickly, fast fashion accounts for the</p>
+              <p className="mt-[5px] mb-[50px] font-quatt text-white text-2xl">high release of microplastic.</p>
+            </div>
+          </div>
+
+          <div id="solution" className="flex flex-col bg-mission2 w-screen items-center">
+            <div className="flex flex-row items-center justify-center w-[1000px] h-[500px] mt-[100px] bg-white bg-opacity-50 drop-shadow-md rounded-3xl">
+              <div className="flex flex-col mr-9">
+                <p className="font-montserrat text-8xl font-bold">We will</p>
+                <p className="font-montserrat text-8xl font-bold">be your</p>
+                <p className="mt-2 font-montserrat text-8xl font-bold">solution</p>
+                <p className="mt-5 font-quatt text-2xl">Locate your nearest thrift shops</p>
+                <p className="font-quatt text-2xl">and find ways to recycle.</p>
+              </div>
+              <img src="assets/mission-map.png" className="w-[300px] ml-9"></img>
+            </div>
+
+            <p className="mt-[100px] font-quattrocento font-extrabold text-5xl drop-shadow-lg">MAKE CHANGE</p>
+            <p className="mt-2 font-quattrocento font-extrabold text-5xl drop-shadow-lg">FOR THE WORLD</p>
+            <p className="mt-3 font-quatt font-bold text-3xl">Find your most sustainable options</p>
+            <button onClick={() => {
+              window.location.replace("/donation");;
+            }} className="mt-3 mb-[100px] bg-success text-sm hover:font-extrabold py-3 px-6 rounded shadow">&rarr; Get Started</button>
           </div>
         </div>
       </div>

@@ -12,6 +12,7 @@ module.exports = {
         'jungeun': "url('../public/assets/jungeun.png')",
         'chris': "url('../public/assets/chris.png')",
         'mission': "url('../public/assets/mission-bg.png')",
+        'mission2': "url('../public/assets/mission-bg2.png')"
       },
       fontFamily: {
         'montserrat': ["Montserrat Alternates", "sans-serif"],
