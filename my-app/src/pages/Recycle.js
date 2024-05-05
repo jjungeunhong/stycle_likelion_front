@@ -1,27 +1,37 @@
+import { useRef } from 'react';
 import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 
 function Recycle() {
     const navigate = useNavigate();
+    const thriftingFactsRef = useRef(null);
+    const upcyclingFactsRef = useRef(null);
+    const waysToUpcycleRef = useRef(null);
 
-  return (
-    <div className="flex flex-col w-full">
-        <div className="flex flex-row w-full items-start justify-start bg-main bg-cover bg-center min-h-screen pb-20">
-            <div className="w-1/2 pl-[150px] pt-[20px] pb-[20px]">
-                <div className="mt-[120px] xl:ml-[0px] ml-[80px] ">
-                    <div className="font-montserrat font-extrabold text-6xl pl-[10px]">
-                        <p className="">Ways to</p>
-                        <p className="mt-2">Repurpose</p>
-                        <div className="h-3 w-[380px] bg-primary"></div>
+    const scrollToRef = (ref) => {
+        ref.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+
+    return (
+        <div className="flex flex-col w-full bg-main bg-cover bg-center">
+            <div className="h-screen flex flex-col items-center justify-center">
+                <Header />
+                <div className="text-center">
+                    <h1 className="font-montserrat font-extrabold text-6xl">Ways to Repurpose</h1>
+                    <p className="font-quattrocento font-bold text-2xl mt-4">Turning old clothes into new ones</p>
+                    <div className="flex flex-row justify-center space-x-5 py-10">
+                        <button className='bg-gray-100 text-black text-md py-2 px-6 rounded shadow-lg' onClick={() => scrollToRef(thriftingFactsRef)}>Thrifting Facts</button>
+                        <button className='bg-gray-100 text-black text-md py-2 px-6 rounded shadow-lg' onClick={() => scrollToRef(upcyclingFactsRef)}>Upcycling Facts</button>
+                        <button className='bg-gray-100 text-black text-md py-2 px-6 rounded shadow-lg' onClick={() => scrollToRef(waysToUpcycleRef)}>Ways to Upcycle</button>
                     </div>
-                    <div className="font-quattrocento font-bold text-2xl pl-[10px]">
-                        <p>Turning old clothes</p>
-                        <p>into new ones</p>
-                    </div>
-                    <p className="font-quattrocento font-bold text-lg mt-10">
-                        Thrifting facts:
-                    </p>
-                    <p className="font-quattrocento font-bold text-xs mt-2 max-w-2xl bg-white shadow-lg p-5 rounded-lg">
+                </div>
+            </div>
+
+            <div className="flex flex-row items-center justify-center py-20">
+                <img src="assets/thrifting_left.jpg" alt="Thrifting left" style={{ width: 'auto', height: '660px' }}/>
+                <div ref={thriftingFactsRef} className="flex flex-col items-center justify-center py-20">
+                    <h2 className="font-quattrocento font-bold text-3xl">Thrifting Facts</h2>
+                    <div className="font-quattrocento font-bold text-s mt-2 max-w-2xl bg-white shadow-lg p-5 rounded-lg">
                         <ul className="list-disc pl-5">
                             <li>California has the highest number of used merchandise stores in the country, with 1,753  or 9.4% of establishments.</li>
                             <li>33.7% of thrift stores in the U.S. are non-profit organizations.</li>
@@ -40,13 +50,18 @@ function Recycle() {
                             <li>The average American throws away 81 pounds of clothing per year.</li>
                             <li>The average American buys 70% more clothing today than they did 20 years ago.</li>
                         </ul>
-                    </p>
-                    <p className="font-quattrocento font-bold text-lg mt-10">
-                        Upcycling facts:
-                    </p>
-                    <p className="font-quattrocento font-bold text-xs mt-2 max-w-2xl bg-white shadow-lg p-5 rounded-lg">
+                    </div>
+                </div>
+                <img src="assets/thrifting_right.jpg" alt="Thrifting right" style={{ width: 'auto', height: '660px' }}/>
+            </div>
+
+            <div className="flex flex-row items-center justify-center py-20">
+                <img src="assets/upcycled_shirt_before.jpg" alt="Before Upcycling Shirt" style={{ width: 'auto', height: '730px' }}/>
+                <div ref={upcyclingFactsRef} className="flex flex-col items-center justify-center py-20">
+                <h2 className="font-quattrocento font-bold text-3xl">Upcycling Facts</h2>
+                    <div className="font-quattrocento font-bold text-s mt-2 max-w-2xl bg-white shadow-lg p-5 rounded-lg">
                         <ul className="list-disc pl-5">
-                            <li>Almost 1 in 10 people in the UK hasn’t recycled or upcycled a single item in the past year</li>
+                            <li>Almost 1 in 10 people in the UK hasn't recycled or upcycled a single item in the past year</li>
                             <li>Approximately 100 million pounds of clothing is produced every year statewide.</li>
                             <li>Approximately 0.02 pounds of pesticides are used to produce one pound of new clothes, approximately 2 million pounds of insecticides washed into waterways or otherwise harm the environment.</li>
                             <li>Approximately 3-4 pounds of CO2 are saved for every 1 pound of clothing that is spared from disposal.</li>
@@ -58,32 +73,31 @@ function Recycle() {
                             <li>Globally, about 85% of clothes ends up in landfills or burned.</li>
                             <li>An estimated 13 million tons of textile waste a year comes from the manufacturers themselves, as well as retailers with the fashion industry contributing roughly 10% of all global carbon emissions and with plastic fibers in the clothes contributing to microplastic pollution.</li>
                         </ul>
-                    </p>
-                    <p className="font-quattrocento font-bold text-lg mt-10">
-                        Ways to upcycle:
-                    </p>
-                    <p className="font-quattrocento font-bold text-xs mt-2 max-w-2xl bg-white shadow-lg p-5 rounded-lg">
-                        <ul className="list-disc pl-5">
-                            <li>The 5R's and 1D: </li>
-                            <li>Reduce, Reuse, Repurpose, Research, and Donate</li>
-                            <li>Dye-it</li>
-                            <li>Patched clothes</li>
-                            <li>Adult clothes into children's</li>
-                            <li>Repurpose into other items such as bags</li>
-                        </ul>
-                    </p>
+                    </div>
                 </div>
+                <img src="assets/upcycled_shirt_after.jpg" alt="After Upcycling Shirt" style={{ width: 'auto', height: '730px' }}/>
             </div>
-            <div className="w-1/2 flex flex-col items-end pr-[150px] pt-[150px] pb-[20px]">  
-                <div className="mt-[120px] xl:ml-[0px] ml-[80px]">
-                    <img src="assets/upcycled_bag.jpg" alt="upcycledBag" className="mt-4" style={{ width: '500px', height: 'auto' }}/>
-                    <img src="assets/upcycled_shirt.jpg" alt="upcycledShirt" className="mt-4" style={{ width: '500px', height: 'auto' }}/>
-                    <img src="assets/upcycled_skirt.jpg" alt="upcycledSkirt" className="mt-4" style={{ width: '500px', height: 'auto' }}/>
+
+            <div ref={waysToUpcycleRef} className="min-h-[800px] min-w-[800px] flex flex-col items-center justify-center py-20">
+                <h2 className="font-quattrocento font-bold text-3xl">Ways to Upcycle</h2>
+                <div className="min-h-[100px] min-w-[670px] font-quattrocento font-bold text-s mt-2 max-w-2xl bg-white shadow-lg p-5 rounded-lg">
+                    <ul className="list-disc pl-5">
+                        <li>The 5R's and 1D: </li>
+                        <li>Reduce, Reuse, Repurpose, Research, and Donate</li>
+                        <li>Dye-it</li>
+                        <li>Patched clothes</li>
+                        <li>Adult clothes into children's</li>
+                        <li>Repurpose into other items such as bags</li>
+                    </ul>
+                </div>
+                <div className="grid grid-cols-3 gap-8 px-10 mt-10">
+                    <img src="assets/dye_it_shirt.jpeg" alt="Dye It Shirt" style={{ height: '300px', width: '100%', objectFit: 'contain' }}/>
+                    <img src="assets/patch_tshirt.jpg" alt="Patch T-Shirt" style={{ height: '300px', width: '100%', objectFit: 'contain' }}/>
+                    <img src="assets/upcycled_bag.jpg" alt="Upcycled Bag" style={{ height: '300px', width: '100%', objectFit: 'contain' }}/>
                 </div>
             </div>
         </div>
-    </div>
-  );
+    );
 }
 
 export default Recycle;
