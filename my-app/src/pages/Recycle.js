@@ -7,6 +7,8 @@ function Recycle() {
     const thriftingFactsRef = useRef(null);
     const upcyclingFactsRef = useRef(null);
     const waysToUpcycleRef = useRef(null);
+    const microplastic = useRef(null);
+    const test = useRef(null);
 
     const scrollToRef = (ref) => {
         ref.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
@@ -96,8 +98,31 @@ function Recycle() {
                     <img src="assets/upcycled_bag.jpg" alt="Upcycled Bag" style={{ height: '300px', width: '100%', objectFit: 'contain' }}/>
                 </div>
             </div>
+            <div ref={microplastic} className="flex flex-col items-center justify-center text-center py-20" style={{ backgroundColor: '#d9d9d9' }}>
+                <h1 className="font-montserrat font-extrabold text-6xl mb-10">What is the problem?</h1>
+                <div className="relative w-full max-w-4xl">
+                    <img src="assets/tshirtPNG.png" alt="Microplastics" className="w-full h-auto object-cover" />
+                    <div className="absolute inset-0">
+                        <h2 className="font-montserrat font-extrabold text-7xl text-blue-800" style={{ position: 'absolute', top: '30%', left: '28%' }}>Micro</h2>
+                        <h2 className="font-montserrat font-extrabold text-7xl text-blue-800" style={{ position: 'absolute', top: '45%', right: '28%' }}>Plastic</h2>
+                    </div>
+                </div>
+                <div className="font-quattrocento text-xl mt-10 px-5 max-w-4xl">
+                    <p>Our clothes are made of plastic and this plastic comes from synthetic textiles like polyester. The release of microplastics is the highest when new clothes are washed for the first time. An average 6 kg load of laundry releases more than 700,000 microscopic plastic fibers into wastewater. As garments are used for a short time and replaced quickly, fast fashion accounts for the high release of microplastics.</p>
+                    <p className="font-montserrat font-extrabold text-2xl mt-5">Textiles produce 35% of the microplastic pollution in the world's oceans.</p>
+                </div>
+            </div>
+            <div ref={test} className="flex flex-col items-center justify-center text-center py-20" style={{ backgroundColor: '#d9d9d9' }}>
+                <div className="relative w-full max-w-4xl">
+                    <img src="assets/phone.png" alt="Looking for new clothes" className="w-auto h-auto object-cover mx-auto" style={{ maxHeight: '400px', position: 'relative', marginRight: '550px', marginTop: '150px' }} />
+                    <div className="absolute inset-0">
+                        <h2 className="font-montserrat font-extrabold text-6xl text-black" style={{ position: 'absolute', top: '10%', left: '0%', zIndex: '2' }}>Are you still looking for</h2>
+                        <h2 className="font-montserrat font-extrabold text-6xl text-blue-800" style={{ position: 'absolute', top: '25%', right: '0%', zIndex: '2', color: '#800000' }}>new clothes?</h2>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 }
 
-export default Recycle;
+export default Recycle; 
