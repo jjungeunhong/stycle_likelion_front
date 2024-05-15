@@ -72,19 +72,28 @@ function Donate() {
     })
 
     return (
-            <div className='bg-main-ppl'>
+            <div className='bg-donation-bg'>
                 <div className="flex flex-col items-center justify-center bg-cover bg-center h-screen">
+                    <img className='w-[88px] h-[88px] mb-7 mt-10' src='./assets/donation-mark.png' alt='donation-mark'></img>
                     <div className='flex flex-col items-center justify-center gap-y-3'>
                         <h1 className='text-5xl font-montserrat font-extrabold text-nav'>Drop, Shop, and Renew</h1>
-                        {/* <div className="h-2 w-[610px] bg-primary"></div> */}
                     </div>
                     <div className='flex flex-col items-center text-xl justify-center py-2'>
-                        <p className='font-quattrocento font-bold text-xl'>Spin the cycle of giving</p>
+                        <p className='font-Quattrocento Sans font-bold text-xl'>Find Options to Donate Goods</p>
                     </div>
-                    <div className="flex flex-row items-center space-x-5 py-20 px-10">
-                        <button className='bg-gray-100 hover:bg-menu text-black hover:text-black text-md py-2 px-6 rounded shadow-lg' onClick={handleclick}>Clothing Bins Near Me</button>
-                        <button className='bg-gray-100 hover:bg-menu text-black hover:text-black text-md py-2 px-6 rounded shadow-lg'>What to Give</button>
-                        <button className='bg-gray-100 hover:bg-menu text-black hover:text-black text-md py-2 px-6 rounded shadow-lg'>Thrift Store Near me</button>
+                    <div className="flex flex-row items-center space-x-5 py-20 px-10 ">
+                        <div className='w-[253px] h-[293px] flex flex-col items-center py-10 px-6 rounded-md shadow-lg bg-gradient-to-b from-donation-block from-10% to-transparent to-90%' onClick={handleclick}>
+                            <img className='w-[108px] h-[108px]' src='./assets/pink_circle.png' alt='pink circle'></img>
+                            <p1 className='py-5 text-[32px] leading-[35.46px] font-extrabold text-center font-quattrocento'>Clothing Bins Near Me</p1>
+                        </div>
+                        <div className='w-[253px] h-[293px] flex flex-col items-center py-10 px-6 rounded-md shadow-lg bg-gradient-to-b from-donation-block from-25% to-transparent to-80%'>
+                            <img className='w-[108px] h-[108px]' src='./assets/lightblue_cirlce.png' alt='pink circle'></img>
+                            <p1 className='py-5 text-[32px] leading-[35.46px] font-extrabold text-center font-quattrocento'>What to Give</p1>
+                        </div>
+                        <div className='w-[253px] h-[293px] flex flex-col items-center py-10 px-6 rounded-md shadow-lg bg-gradient-to-b from-donation-block from-40% to-transparent to-90%'>
+                            <img className='w-[108px] h-[108px]' src='./assets/green_circle.png' alt='pink circle'></img>
+                            <p1 className='py-5 text-[32px] leading-[35.46px] font-extrabold text-center font-quattrocento'>Find a Dropoff Location</p1>
+                        </div>
                     </div>
                 </div>
 
