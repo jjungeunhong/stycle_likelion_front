@@ -11,6 +11,7 @@ module.exports = {
         'main-ppl': "url('../public/assets/main-ppl.png')",
         'jungeun': "url('../public/assets/jungeun.png')",
         'chris': "url('../public/assets/chris.png')",
+        'donation-bg': "url('../public/assets/donation_bg.png')",
         'mission': "url('../public/assets/mission-bg.png')",
         'mission2': "url('../public/assets/mission-bg2.png')"
       },
@@ -29,6 +30,7 @@ module.exports = {
         'success': '#EA6C56',
         'mypink': '#EB6AA5',
         'primarydown':'#C7E667',
+        'donation-block':'#FFFFFF99',
         'matcha': '#DCEFA9',
         'charcoal': '#36454F',
       }
