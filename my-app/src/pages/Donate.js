@@ -2,16 +2,24 @@ import Header from '../components/Header';
 import 'leaflet/dist/leaflet.css';
 import './donate.css';
 import { Icon } from 'leaflet';
+import SearchBox from './searchbox';
+import { Link } from 'react-router-dom';
+
 import { MapContainer, Popup, TileLayer, Marker } from 'react-leaflet';
 
 import { useRef } from 'react';
 
 function Donate() {
-    const ref = useRef(null);
-    const handleclick = () => {
-        ref.current?.scrollIntoView({behavior:'smooth', block: "end"})
-    }
-    const markers = [
+    const mapview = useRef(null);
+    const partners = useRef(null);
+    const guideline = useRef(null);
+    const scrollToSection = (elementRef) => {
+        window.scrollTo({
+            top: elementRef.current.offsetTop,
+            behavior: 'smooth',
+        });
+    };
+    const markers_mesa = [
         {
         geocode: [33.65121119168223, -117.84499505852567],
         popUp: "Mesa Court Bin 1"
@@ -19,7 +27,8 @@ function Donate() {
         {
             geocode: [33.653186676502074, -117.84400174389245],
             popUp: "Mesa Court Bin 2"
-        },
+        }];
+    const markers_campus = [
         {
             geocode: [33.6453109606942, -117.84673092405637],
             popUp: "Campus Village Bin 1"
@@ -27,11 +36,13 @@ function Donate() {
         {
             geocode: [33.644406607922306, -117.84820668719996],
             popUp: "Campus Village Bin 2"
-        },
+        }];
+    const markers_middle = [
         {
             geocode: [33.64495447140219, -117.83710589714643],
             popUp: "Middle Earth Housing Bin"
-        },
+        }];
+    const markers_vernano = [
         {
             geocode: [33.64629984154211, -117.83400660182508],
             popUp: "Vernano Place Bin 1"
@@ -52,7 +63,8 @@ function Donate() {
         {
             geocode: [33.64412316654421, -117.83135954264542],
             popUp: "Vernano Place Bin 5"
-        },
+        }];
+    const markers_arroyo = [
         {
             geocode: [33.64757946104147, -117.82721917486434],
             popUp: "Arroyo Vista Bin 1"
@@ -65,9 +77,25 @@ function Donate() {
             geocode: [33.645920520722875, -117.82751374017333],
             popUp: "Arroyo Vista Bin 3"
         }
-    ];
-    const customIcon = new Icon({
-        iconUrl: require("./img/pin.png"),
+        ];
+    const blueIcon = new Icon({
+        iconUrl: require("./img/rm-blue-marker.png"),
+        iconSize: [38,40]
+    })
+    const greenIcon = new Icon({
+        iconUrl: require("./img/rm-green-marker.png"),
+        iconSize: [38,40]
+    })
+    const orangeIcon = new Icon({
+        iconUrl: require("./img/rm-orange-marker.png"),
+        iconSize: [38,40]
+    })
+    const pinkIcon = new Icon({
+        iconUrl: require("./img/rm-pink-marker.png"),
+        iconSize: [38,40]
+    })
+    const yellowIcon = new Icon({
+        iconUrl: require("./img/rm-yellow-marker.png"),
         iconSize: [38,40]
     })
 
@@ -82,15 +110,15 @@ function Donate() {
                         <p className='text-3xl font-quattrocento font-semibold'>Find Options to Donate Goods</p>
                     </div>
                     <div className="flex flex-row items-center space-x-10 py-20 px-10 ">
-                        <div className='w-[253px] h-[293px] flex flex-col items-center py-10 px-6 rounded-2xl shadow-lg bg-gradient-to-b from-donation-block from-10% to-transparent to-90% hover:bg-donation-block'>
-                            <img className='w-[108px] h-[108px]' src='./assets/pink_circle.png' alt='pink circle'></img>
-                            <p1 className='py-5 text-[32px] leading-[35.46px] font-extrabold text-center font-quattrocento'>Find a Dropoff Location</p1>
-                        </div>
-                        <div className='w-[253px] h-[293px] flex flex-col items-center py-10 px-6 rounded-2xl shadow-lg bg-gradient-to-b from-donation-block from-30% to-transparent to-85% hover:bg-donation-block'>
-                            <img className='w-[108px] h-[108px]' src='./assets/lightblue_cirlce.png' alt='pink circle'></img>
+                    <div onClick={() => scrollToSection(guideline)} className='w-[253px] h-[293px] flex flex-col items-center py-10 px-6 rounded-2xl shadow-lg bg-gradient-to-b from-donation-block from-30% to-transparent to-85% hover:bg-donation-block'>
+                    <img className='w-[108px] h-[108px]' src='./assets/pink_circle.png' alt='pink circle'></img>
                             <p1 className='py-5 text-[32px] leading-[35.46px] font-extrabold text-center font-quattrocento'>What to Give</p1>
                         </div>
-                        <div className='w-[253px] h-[293px] flex flex-col items-center py-10 px-6 rounded-2xl shadow-lg bg-gradient-to-b from-donation-block from-45% to-transparent to-90% hover:bg-donation-block' onClick={handleclick}>
+                        <div onClick={() => scrollToSection(partners)} className='w-[253px] h-[293px] flex flex-col items-center py-10 px-6 rounded-2xl shadow-lg bg-gradient-to-b from-donation-block from-10% to-transparent to-90% hover:bg-donation-block'>
+                            <img className='w-[108px] h-[108px]' src='./assets/lightblue_cirlce.png' alt='pink circle'></img>
+                            <p1 className='py-5 text-[32px] leading-[35.46px] font-extrabold text-center font-quattrocento'>Meet Our Partners</p1>
+                        </div>
+                        <div onClick={() => scrollToSection(mapview)} className='w-[253px] h-[293px] flex flex-col items-center py-10 px-6 rounded-2xl shadow-lg bg-gradient-to-b from-donation-block from-45% to-transparent to-90% hover:bg-donation-block'>
                             <img className='w-[108px] h-[108px]' src='./assets/green_circle.png' alt='pink circle'></img>
                             <p1 className='py-5 text-[32px] leading-[35.46px] font-extrabold text-center font-quattrocento'>Clothing Bins Near Me</p1>
                         </div>
@@ -104,7 +132,7 @@ function Donate() {
                         </div>
                     </div>
 
-                <div className='flex flex-col h-screen'>
+                <div ref={guideline} className='flex flex-col h-screen'>
                     <div className='flex flex-col justify-center items-center py-10'>
                         <h1 className='text-nav font-quatt text-5xl font-extrabold'>Donation Guidelines</h1>
                         <p className='font-quattrocento text-xl'>Find out about guidelines that you should follow when donating clothing</p>
@@ -169,90 +197,112 @@ function Donate() {
                     </div>
                 </div>
 
-                <div className='bg-[#3D3D2F] h-[388px] flex flex-col items-center'>
+                <div ref={partners} className='bg-[#3D3D2F] h-[388px] flex flex-col items-center'>
                     <div className='flex flex-col items-center pt-10 pb-10'>
                         <h1 className='text-white text-5xl font-quattrocento font-extrabold pb-1'>Meet Our Partners</h1>
                         <p className='text-white font-quattrocento text-xl'>These partners help create UCI a better environment</p>
                     </div>
                     <div className='flex flex-row justify-center items-center pt-5 space-x-20'>
-                            <img className='w-[350px]'src='./assets/goodwill.png' alt='goowill' ></img>
-                            <img className='w-[300px]'src='./assets/oneworld.png' alt='goowill'></img>
-                            <img className='w-[300px]'src='./assets/basicneeds.png' alt='goowill'></img>
+                            <a href={'https://www.goodwill.org/'}>
+                                <img className='w-[350px]'src='./assets/goodwill.png' alt='goowill' a href = 'https://www.goodwill.org/' >
+                                </img>
+                            </a>
+                            <a href={'https://owcteam.com/'}>
+                            <img className='w-[300px]'src='./assets/oneworld.png' alt='oneworld'></img>
+                            </a>
+                            <a href={'https://basicneeds.uci.edu/'}>
+                                <img className='w-[300px]'src='./assets/basicneeds.png' alt='basicneeds'></img>
+                            </a>
+                            
                     </div>
                 </div>
 
 
-                <div className='h-screen'>
+                <div ref={mapview} className='h-screen'>
                     <div className='flex flex-col items-center justify-center py-8'>
                         <p className='text-5xl font-quatt font-extrabold pb-2'>Clothing Bins at UCI</p>
                         <p className='text-lg font-quattrocento'>Find locations to drop off your pre-loved pieces of clothing</p>
                     </div>
 
-                    <div className="flex justify-center" ref={ref}>
+                    <div className="flex space-x-8 flex-row justify-center">
                         <MapContainer center={[33.64709604957145, -117.83781926918356]} zoom={16} style={{ height: '70vh', width: '70%' }}>
                             <TileLayer
                             attribution= '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
                             url='https://tile.openstreetmap.org/{z}/{x}/{y}.png'
                             />
-                            {markers.map((marker) =>(
-                                <Marker position={marker.geocode} icon={customIcon}>
+                           
+                            {markers_campus.map((marker) =>(
+                                <Marker position={marker.geocode} icon={blueIcon}>
                                     <Popup>{marker.popUp}</Popup>
                                 </Marker>
+                                
+                            ))},
+                            {markers_middle.map((marker) =>(
+                                <Marker position={marker.geocode} icon={greenIcon}>
+                                    <Popup>{marker.popUp}</Popup>
+                                </Marker>
+                                
+                            ))},
+                            {markers_vernano.map((marker) =>(
+                                <Marker position={marker.geocode} icon={yellowIcon}>
+                                    <Popup>{marker.popUp}</Popup>
+                                </Marker>
+                                
+                            ))},
+                            {markers_mesa.map((marker) =>(
+                                <Marker position={marker.geocode} icon={pinkIcon}>
+                                    <Popup>{marker.popUp}</Popup>
+                                </Marker>
+                                
+                            ))},
+                            {markers_arroyo.map((marker) =>(
+                                <Marker position={marker.geocode} icon={orangeIcon}>
+                                    <Popup>{marker.popUp}</Popup>
+                                </Marker>
+                                
                             ))}
                         </MapContainer>
+                        <div className='flex flex-col w-[305px] bg-white rounded-xl'>
+                            <p1 className='pt-5 text-center pb-5 font-gilroy'>View Locations</p1>
+                            <div className='w-[305px] h-[1px] bg-gray-200'></div>
+
+                            <div className='flex flex-col items-start space-y-1'>
+                                <div className='flex flex-row items-center space-x-2'>
+                                    <img className='h-[30px] w-[25px]'src='./assets/rm-blue-marker.png'></img>
+                                    <p1 className='pt-5 text-center pb-5 font-gilroy'>Campus Village</p1>
+                                </div>
+                                <div className='w-[305px] h-[1px] bg-gray-200'></div>
+                                <div className='flex flex-row items-center space-x-2'>
+                                    <img className='h-[30px] w-[25px]'src='./assets/rm-green-marker.png'></img>
+                                    <p1 className='pt-5 text-center pb-5 font-gilroy'>Middle Earth</p1>
+                                </div>
+                                <div className='w-[305px] h-[1px] bg-gray-200'></div>
+                                <div className='flex flex-row items-center space-x-2'>
+                                    <img className='h-[30px] w-[25px]'src='./assets/rm-orange-marker.png'></img>
+                                    <p1 className='pt-5 text-center pb-5 font-gilroy'>Arroyo Vista</p1>
+                                </div>
+                                <div className='w-[305px] h-[1px] bg-gray-200'></div>
+                                <div className='flex flex-row items-center space-x-2'>
+                                    <img className='h-[30px] w-[25px]'src='./assets/rm-yellow-marker.png'></img>
+                                    <p1 className='pt-5 text-center pb-5 font-gilroy'>Verano Place</p1>
+                                </div>
+                                <div className='w-[305px] h-[1px] bg-gray-200'></div>
+                                <div className='flex flex-row items-center space-x-2'>
+                                    <img className='h-[30px] w-[25px]'src='./assets/rm-pink-marker.png'></img>
+                                    <p1 className='pt-5 text-center pb-5 font-gilroy'>Mesa Court</p1>
+                                </div>
+                                <div className='w-[305px] h-[1px] bg-gray-200'></div>
+                                <div className='w-[305px]'><SearchBox/></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                {/* <div className='flex flex-col h-screen items-center justify-center'>
-                    <div className='flex py-10'>
-                        <p className='text-nav font-quattrocento text-3xl font-extrabold'>Donation Guidelines</p>
+                <div className="relative py-40 text-center text-white" style={{ backgroundColor: "#3D3D2F" }}>
+                    <div className="absolute inset-0 flex items-center justify-center">
+                        <img src="assets/footer.png" alt="Footer Information" className="w-3/4 h-5/6 object-contain" />
                     </div>
-                    <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6'>
-                        <div className='group relative items-center justify-center overflow-hidden cursor-pointer'>
-                            <div className='h-96 w-72'>
-                                <img className='h-full w-full object-cover' src='https://images.pexels.com/photos/235525/pexels-photo-235525.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2' alt='clothes'></img>
-                            </div>
-                            <div className='absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black'></div>
-                                <div className='absolute inset-0 flex flex-col items-center justify-center px-9 text-center translate-y-[60%] group-hover:translate-y-0 transition-all'>
-                                    <h1 className='text-3xl font-bold text-white mb-9'>Clothes</h1>
-                                    <p className='text-lg text-white mb-3'>All seasons of clothing, including shoes, handbags and accessories</p>
-                                </div>
-                        </div>
-
-                        <div className='group relative items-center justify-center overflow-hidden cursor-pointer'>
-                            <div className='h-96 w-72'>
-                                <img className='h-full w-full object-cover' src='https://media.istockphoto.com/id/586162072/photo/various-kitchen-utensils.jpg?s=1024x1024&w=is&k=20&c=IzdCrs1KIKgYNS7TntHug3OVV97XnYPewVf1vFU_ZWg=' alt='shoes'></img>
-                            </div>
-                            <div className='absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black'></div>
-                                <div className='absolute inset-0 flex flex-col items-center justify-center px-9 text-center translate-y-[60%] group-hover:translate-y-0 transition-all'>
-                                    <h1 className='text-3xl font-bold text-white mb-9'>Houseware</h1>
-                                    <p className='text-lg text-white mb-3'>Including cookware, dishes, silverware, glassware, artwork and picture frames, blankets, books, etc.</p>
-                                </div>
-                        </div>
-
-                        <div className='group relative items-center justify-center overflow-hidden cursor-pointer'>
-                            <div className='h-96 w-72'>
-                                <img className='h-full w-full object-cover' src='https://images.pexels.com/photos/1450907/pexels-photo-1450907.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2' alt='appliance'></img>
-                            </div>
-                            <div className='absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black'></div>
-                                <div className='absolute inset-0 flex flex-col items-center justify-center px-9 text-center translate-y-[60%] group-hover:translate-y-0 transition-all'>
-                                    <h1 className='text-3xl font-bold text-white mb-9'>Small Appliance</h1>
-                                    <p className='text-lg text-white mb-3'>Including toasters, coffee pots, electric frying pans, irons, mixers, blenders and microwaves</p>
-                                </div>
-                        </div>
-
-                        <div className='group relative items-center justify-center overflow-hidden cursor-pointer'>
-                            <div className='h-96 w-72'>
-                                <img className='h-full w-full object-cover' src='https://media.istockphoto.com/id/1400570369/photo/old-computers-digital-tablets-mobile-phones-many-used-electronic-gadgets-devices-broken.jpg?s=1024x1024&w=is&k=20&c=BA3dOCaiXxcfSVVhPwqjLA0jLJ000HfqORNpH_KV_V0=' alt='appliance'></img>
-                            </div>
-                            <div className='absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black'></div>
-                                <div className='absolute inset-0 flex flex-col items-center justify-center px-9 text-center translate-y-[60%] group-hover:translate-y-0 transition-all'>
-                                    <h1 className='text-3xl font-bold text-white mb-9'>Electronics</h1>
-                                    <p className='text-lg text-white mb-3'>Including toasters, coffee pots, electric frying pans, irons, mixers, blenders and microwaves</p>
-                                </div>
-                        </div>
-                    </div>
-                </div> */}
+                </div>
                 
             </div>
     );
